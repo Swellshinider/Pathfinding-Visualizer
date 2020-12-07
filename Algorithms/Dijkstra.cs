@@ -5,14 +5,14 @@ using Visualizer.Classes;
 
 namespace Visualizer.Algorithms
 {
-    public class Dijkstra : AlgorithmBase
+    public class Dijkstra : Algorithms
     {
         private readonly List<Node> _openList = new List<Node>();
         private readonly List<Coord> _neighbours;
 
         public Dijkstra(Grid grid) : base(grid)
         {
-            algorithmName = "Dijkstra's";
+            _algorithmName = "Dijkstra's";
 
             _neighbours = new List<Coord>();
             _openList.Add(new Node(_id++, null, _origin, 0, 0));
@@ -56,7 +56,7 @@ namespace Visualizer.Algorithms
                     return GetDetailsOfSearch();
                 }
 
-                var cellWeight = _grid.GetBlock(thisNeighbour.X, thisNeighbour.Y).Weight;
+                var cellWeight = _grid.GetBlock(thisNeighbour.X, thisNeighbour.Y).Cost;
                 var neighbourCost = _currentNode.G + cellWeight;
 
                 var openListItem = _openList.FirstOrDefault(x => x.Id == GetExistingNode(true, thisNeighbour));

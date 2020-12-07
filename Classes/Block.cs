@@ -6,7 +6,6 @@ namespace Visualizer.Classes
 {
     public sealed class Block : Label
     {
-
         public Block(int x, int y)
         {
             Coord = new Coord(x, y);
@@ -15,7 +14,7 @@ namespace Visualizer.Classes
 
         public Coord Coord { get; set; }
         public BlockType Type { get; set; } = BlockType.Empty;
-        public int Weight { get; set; }
+        public int Cost { get; set; }
 
         public void Draw()
         {

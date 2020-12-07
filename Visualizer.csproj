@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Algorithms\AlgorithmBase.cs" />
+    <Compile Include="Algorithms\Algorithms.cs" />
     <Compile Include="Algorithms\AStar.cs" />
     <Compile Include="Algorithms\BreadthFirst.cs" />
     <Compile Include="Algorithms\DepthFirst.cs" />

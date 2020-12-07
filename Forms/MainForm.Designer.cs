@@ -53,10 +53,10 @@
             this.panelTools.BackColor = System.Drawing.Color.White;
             this.panelTools.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelTools.Controls.Add(this.labelShow);
-            this.panelTools.Controls.Add(this.labelPutFreePath);
-            this.panelTools.Controls.Add(this.labelPutWall);
-            this.panelTools.Controls.Add(this.labelPutTarget);
             this.panelTools.Controls.Add(this.labelPutOrigin);
+            this.panelTools.Controls.Add(this.labelPutTarget);
+            this.panelTools.Controls.Add(this.labelPutWall);
+            this.panelTools.Controls.Add(this.labelPutFreePath);
             this.panelTools.Controls.Add(this.comboBox);
             this.panelTools.Controls.Add(this.label1);
             this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
@@ -82,7 +82,7 @@
             this.labelPutFreePath.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelPutFreePath.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelPutFreePath.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutFreePath.Location = new System.Drawing.Point(867, 0);
+            this.labelPutFreePath.Location = new System.Drawing.Point(1167, 0);
             this.labelPutFreePath.Name = "labelPutFreePath";
             this.labelPutFreePath.Size = new System.Drawing.Size(129, 47);
             this.labelPutFreePath.TabIndex = 7;
@@ -96,7 +96,7 @@
             this.labelPutWall.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelPutWall.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelPutWall.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutWall.Location = new System.Drawing.Point(996, 0);
+            this.labelPutWall.Location = new System.Drawing.Point(1067, 0);
             this.labelPutWall.Name = "labelPutWall";
             this.labelPutWall.Size = new System.Drawing.Size(100, 47);
             this.labelPutWall.TabIndex = 6;
@@ -110,7 +110,7 @@
             this.labelPutTarget.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelPutTarget.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelPutTarget.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutTarget.Location = new System.Drawing.Point(1096, 0);
+            this.labelPutTarget.Location = new System.Drawing.Point(967, 0);
             this.labelPutTarget.Name = "labelPutTarget";
             this.labelPutTarget.Size = new System.Drawing.Size(100, 47);
             this.labelPutTarget.TabIndex = 5;
@@ -124,7 +124,7 @@
             this.labelPutOrigin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelPutOrigin.Dock = System.Windows.Forms.DockStyle.Right;
             this.labelPutOrigin.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutOrigin.Location = new System.Drawing.Point(1196, 0);
+            this.labelPutOrigin.Location = new System.Drawing.Point(867, 0);
             this.labelPutOrigin.Name = "labelPutOrigin";
             this.labelPutOrigin.Size = new System.Drawing.Size(100, 47);
             this.labelPutOrigin.TabIndex = 4;
@@ -134,6 +134,7 @@
             // 
             // comboBox
             // 
+            this.comboBox.CausesValidation = false;
             this.comboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -144,7 +145,7 @@
             this.comboBox.ItemHeight = 38;
             this.comboBox.Location = new System.Drawing.Point(179, 0);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(299, 46);
+            this.comboBox.Size = new System.Drawing.Size(347, 46);
             this.comboBox.TabIndex = 1;
             // 
             // label1

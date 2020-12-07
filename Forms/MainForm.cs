@@ -17,7 +17,7 @@ namespace Visualizer.Forms
         private const int BLOCK_WIDTH = 25;
         private const int BLOCK_HEIGHT = 25;
 
-        private const int DELAY = 5;
+        private const int DELAY = 10;
 
         private readonly Color _ButtonSelectedColor = Color.CadetBlue;
         private readonly Grid _grid = new Grid();
@@ -39,15 +39,15 @@ namespace Visualizer.Forms
             SetTimer();
         }
 
-        public AlgorithmBase CurrentAlgorithm { get; set; }
+        public Algorithms.Algorithms CurrentAlgorithm { get; set; }
 
         #region Initialization
         private void InitComboBox()
         {
             comboBox.Items.Add("Dijkstra's");
             comboBox.Items.Add("A*");
-            comboBox.Items.Add("Breadth - First Search");
-            comboBox.Items.Add("Depth-First Search");
+            comboBox.Items.Add("Breadth-First");
+            comboBox.Items.Add("Depth-First");
             comboBox.SelectedItem = comboBox.Items[0];
         }
 
@@ -68,13 +68,14 @@ namespace Visualizer.Forms
                         Cursor = Cursors.Hand,
                     };
 
-                    var weightSpread = new Random().Next(0, 10);
-                    if (weightSpread > 8)
-                        nBlock.Weight = 3;
-                    else if (weightSpread > 6)
-                        nBlock.Weight = 2;
+                    var costSpread = new Random().Next(0, 10);
+
+                    if (costSpread > 8)
+                        nBlock.Cost = 3;
+                    else if (costSpread > 6)
+                        nBlock.Cost = 2;
                     else
-                        nBlock.Weight = 1;
+                        nBlock.Cost = 1;
 
                     // ActionEvents
                     nBlock.Click += Block_Click;                 
@@ -107,7 +108,8 @@ namespace Visualizer.Forms
                 var step = details.Path[i];
                 _grid.SetBlock(step.X, step.Y, BlockType.Path);
                 _grid.GetBlock(step.X, step.Y).Draw();
-                Thread.Sleep(25);                
+                Thread.Sleep(25);
+                Update();
             }
 
             Console.WriteLine("Founded with sucess");
@@ -121,9 +123,22 @@ namespace Visualizer.Forms
             var searchStatus = CurrentAlgorithm.GetPathTick();
 
             if (searchStatus.PathFound)
-                ShowPath(searchStatus);
+                ShowPath(searchStatus);          
             else
+            {
                 resetTimer = CheckContinuous();
+
+                foreach (var block in _grid.Blocks)
+                {
+                    if (block.Coord == aCoord)
+                    {
+                        block.Type = BlockType.A;
+                        block.Draw();
+                        Update();
+                        break;
+                    }
+                }
+            }               
 
             if (resetTimer)
                 timer.Start();     
@@ -218,7 +233,7 @@ namespace Visualizer.Forms
 
                 if (_isRunning)
                     Console.WriteLine("canceled");
-                Console.Write($"Running {CurrentAlgorithm.algorithmName} - ");
+                Console.Write($"Running {CurrentAlgorithm._algorithmName} - ");
 
                 timer.Start();
                 _isRunning = true;
@@ -287,8 +302,6 @@ namespace Visualizer.Forms
             block.Type = _selectedBlockType;
             block.Draw();
         }
-        #endregion
-
-        
+        #endregion      
     }
 }

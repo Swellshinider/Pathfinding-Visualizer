@@ -8,22 +8,22 @@ using Visualizer.Classes;
 
 namespace Visualizer.Algorithms
 {
-    public class BreadthFirst : AlgorithmBase
+    public class BreadthFirst : Algorithms
     {
-        private readonly Queue<Node> _q = new Queue<Node>();
+        private readonly Queue<Node> _queue = new Queue<Node>();
         private bool _destinationFound;
 
         public BreadthFirst(Grid grid) : base(grid)
         {
-            algorithmName = "Breadth-First";
-            _q.Enqueue(new Node(_id++, null, _origin, 0, 0));
+            _algorithmName = "Breadth-First";
+            _queue.Enqueue(new Node(_id++, null, _origin, 0, 0));
         }
 
         public override DetailsOfSearch GetPathTick()
         {
-            if (_q.Count > 0 && !_destinationFound)
+            if (_queue.Count > 0 && !_destinationFound)
             {
-                _currentNode = _q.Dequeue();
+                _currentNode = _queue.Dequeue();
                 if (AlreadyVisited(_currentNode.Coord)) return GetDetailsOfSearch();
 
                 _closed.Add(_currentNode);
@@ -35,7 +35,7 @@ namespace Visualizer.Algorithms
                     if (AlreadyVisited(neighbour)) continue;
 
                     var neighbourNode = new Node(_id++, _currentNode.Id, neighbour.X, neighbour.Y, 0, 0);
-                    _q.Enqueue(neighbourNode);
+                    _queue.Enqueue(neighbourNode);
                     _grid.SetBlock(neighbour, BlockType.Open);
 
                     if (!CoordsMatch(neighbour, _destination)) continue;
@@ -84,7 +84,7 @@ namespace Visualizer.Algorithms
                 PathCost = GetPathCost(),
                 LastNode = _currentNode,
                 DistanceOfCurrentNode = _currentNode == null ? 0 : GetManhattenDistance(_currentNode.Coord, _destination),
-                OpenListSize = _q.Count,
+                OpenListSize = _queue.Count,
                 ClosedListSize = _closed.Count,
                 UnexploredListSize = _grid.GetCountOfType(BlockType.Empty),
                 Operations = _operationsCount++

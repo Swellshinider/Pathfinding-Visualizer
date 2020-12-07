@@ -8,3 +8,4 @@ C:\Users\dute2\OneDrive\Documentos\Projetos C#\Visualizer\bin\Debug\Visualizer.p
 C:\Users\dute2\OneDrive\Documentos\Projetos C#\Visualizer\obj\Debug\Visualizer.exe
 C:\Users\dute2\OneDrive\Documentos\Projetos C#\Visualizer\obj\Debug\Visualizer.pdb
 C:\Users\dute2\OneDrive\Documentos\Projetos C#\Visualizer\obj\Debug\Visualizer.Forms.CreditsForm.resources
+C:\Users\dute2\OneDrive\Documentos\Projetos C#\Visualizer\obj\Debug\Visualizer.csprojAssemblyReference.cache

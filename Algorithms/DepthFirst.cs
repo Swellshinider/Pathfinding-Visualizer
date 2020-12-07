@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Visualizer.Algorithms.Tools;
 using Visualizer.Classes;
 
 namespace Visualizer.Algorithms
 {
-    public class DepthFirst : AlgorithmBase
+    public class DepthFirst : Algorithms
     {
         readonly Stack<Node> _stack = new Stack<Node>();
 
         public DepthFirst(Grid grid) : base(grid)
         {
-            algorithmName = "Depth-First";
+            _algorithmName = "Depth-First";
 
             // Add the first node to the stack
             _stack.Push(new Node(_id++, null, _origin, 0, 0));

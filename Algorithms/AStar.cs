@@ -5,14 +5,14 @@ using Visualizer.Classes;
 
 namespace Visualizer.Algorithms
 {
-    public class AStar : AlgorithmBase
+    public class AStar : Algorithms
     {
         private readonly List<Node> _openList = new List<Node>();
         private readonly List<Coord> _neighbours;
 
         public AStar(Grid grid) : base(grid)
         {
-            algorithmName = "A*";
+            _algorithmName = "A*";
             _neighbours = new List<Coord>();
             _openList.Add(new Node(_id++, null, _origin, 0, GetH(_origin, _destination)));
         }
@@ -62,7 +62,7 @@ namespace Visualizer.Algorithms
 
                 // Get the cost of the current node plus the extra step weight and heuristic
                 var hFromHere = GetH(thisNeighbour, _destination);
-                var cellWeight = _grid.GetBlock(thisNeighbour.X, thisNeighbour.Y).Weight;
+                var cellWeight = _grid.GetBlock(thisNeighbour.X, thisNeighbour.Y).Cost;
                 var neighbourCost = _currentNode.G + cellWeight + hFromHere;
 
                 // Check if the node is on the open list already and if it has a higher cost path
@@ -105,7 +105,9 @@ namespace Visualizer.Algorithms
 
         private int? GetExistingNode(bool checkOpenList, Coord coordToCheck)
         {
-            return checkOpenList ? _openList.FirstOrDefault(x => CoordsMatch(x.Coord, coordToCheck))?.Id : _closed.FirstOrDefault(x => CoordsMatch(x.Coord, coordToCheck))?.Id;
+            return checkOpenList 
+                ? _openList.FirstOrDefault(x => CoordsMatch(x.Coord, coordToCheck))?.Id 
+                : _closed.FirstOrDefault(x => CoordsMatch(x.Coord, coordToCheck))?.Id;
         }
 
         protected override DetailsOfSearch GetDetailsOfSearch()
@@ -115,7 +117,11 @@ namespace Visualizer.Algorithms
                 Path = _path?.ToArray(),
                 PathCost = GetPathCost(),
                 LastNode = _currentNode,
-                DistanceOfCurrentNode = _currentNode == null ? 0 : GetH(_currentNode.Coord, _destination),
+
+                DistanceOfCurrentNode = _currentNode == null 
+                ? 0 
+                : GetH(_currentNode.Coord, _destination),
+
                 OpenListSize = _openList.Count,
                 ClosedListSize = _closed.Count,
                 UnexploredListSize = _grid.GetCountOfType(BlockType.Empty),

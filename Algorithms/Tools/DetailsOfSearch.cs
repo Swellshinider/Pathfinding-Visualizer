@@ -4,11 +4,13 @@ namespace Visualizer.Algorithms.Tools
 {
     public class DetailsOfSearch
     {
-        public bool PathPossible => PathFound || OpenListSize > 0;
-        public bool PathFound => Path != null;
         public Coord[] Path { get; set; }
-        public int PathCost { get; set; }
         public Node LastNode { get; set; }
+
+        public bool PathPossible => (PathFound || OpenListSize > 0);
+        public bool PathFound => Path != null;  
+        
+        public int PathCost { get; set; }
         public int DistanceOfCurrentNode { get; set; }
         public int OpenListSize { get; set; }
         public int ClosedListSize { get; set; }
