@@ -37,6 +37,7 @@ namespace Visualizer.Forms
             InitComboBox();     
             GenerateGrid();
             SetTimer();
+            SetToolTips();
         }
 
         public Algorithms.Algorithms CurrentAlgorithm { get; set; }
@@ -91,6 +92,16 @@ namespace Visualizer.Forms
             timer.Interval = DELAY;
             timer.Tick += Tick;
             timer.Stop();
+        }
+
+        private void SetToolTips()
+        {
+            var tooltip = new ToolTip();
+            tooltip.SetToolTip(labelPutOrigin, "Place the origin block");
+            tooltip.SetToolTip(labelPutTarget, "Place the target block");
+            tooltip.SetToolTip(labelPutWall, "Place wall block");
+            tooltip.SetToolTip(labelPutFreePath, "Place free path block");
+            tooltip.InitialDelay = 1000;
         }
         #endregion
 
@@ -302,6 +313,6 @@ namespace Visualizer.Forms
             block.Type = _selectedBlockType;
             block.Draw();
         }
-        #endregion      
+        #endregion 
     }
 }

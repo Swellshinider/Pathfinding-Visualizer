@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.panelTools = new System.Windows.Forms.Panel();
             this.labelShow = new System.Windows.Forms.Label();
-            this.labelPutFreePath = new System.Windows.Forms.Label();
-            this.labelPutWall = new System.Windows.Forms.Label();
-            this.labelPutTarget = new System.Windows.Forms.Label();
             this.labelPutOrigin = new System.Windows.Forms.Label();
+            this.labelPutTarget = new System.Windows.Forms.Label();
+            this.labelPutWall = new System.Windows.Forms.Label();
             this.comboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelPutFreePath = new System.Windows.Forms.Label();
             this.labelReset = new System.Windows.Forms.Label();
             this.labelRun = new System.Windows.Forms.Label();
             this.panelGrid = new System.Windows.Forms.Panel();
@@ -56,9 +56,9 @@
             this.panelTools.Controls.Add(this.labelPutOrigin);
             this.panelTools.Controls.Add(this.labelPutTarget);
             this.panelTools.Controls.Add(this.labelPutWall);
-            this.panelTools.Controls.Add(this.labelPutFreePath);
             this.panelTools.Controls.Add(this.comboBox);
             this.panelTools.Controls.Add(this.label1);
+            this.panelTools.Controls.Add(this.labelPutFreePath);
             this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTools.Location = new System.Drawing.Point(0, 0);
             this.panelTools.Name = "panelTools";
@@ -76,33 +76,19 @@
             this.labelShow.Text = "Put blocks:";
             this.labelShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelPutFreePath
+            // labelPutOrigin
             // 
-            this.labelPutFreePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPutFreePath.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelPutFreePath.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelPutFreePath.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutFreePath.Location = new System.Drawing.Point(1167, 0);
-            this.labelPutFreePath.Name = "labelPutFreePath";
-            this.labelPutFreePath.Size = new System.Drawing.Size(129, 47);
-            this.labelPutFreePath.TabIndex = 7;
-            this.labelPutFreePath.Text = "Free path";
-            this.labelPutFreePath.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelPutFreePath.Click += new System.EventHandler(this.LabelPutFreePath_Click);
-            // 
-            // labelPutWall
-            // 
-            this.labelPutWall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPutWall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelPutWall.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelPutWall.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutWall.Location = new System.Drawing.Point(1067, 0);
-            this.labelPutWall.Name = "labelPutWall";
-            this.labelPutWall.Size = new System.Drawing.Size(100, 47);
-            this.labelPutWall.TabIndex = 6;
-            this.labelPutWall.Text = "Wall";
-            this.labelPutWall.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelPutWall.Click += new System.EventHandler(this.LabelPutWall_Click);
+            this.labelPutOrigin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelPutOrigin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelPutOrigin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelPutOrigin.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPutOrigin.Location = new System.Drawing.Point(867, 0);
+            this.labelPutOrigin.Name = "labelPutOrigin";
+            this.labelPutOrigin.Size = new System.Drawing.Size(100, 47);
+            this.labelPutOrigin.TabIndex = 4;
+            this.labelPutOrigin.Text = "Origin";
+            this.labelPutOrigin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPutOrigin.Click += new System.EventHandler(this.LabelPutOrigin_Click);
             // 
             // labelPutTarget
             // 
@@ -118,19 +104,19 @@
             this.labelPutTarget.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelPutTarget.Click += new System.EventHandler(this.LabelPutTarget_Click);
             // 
-            // labelPutOrigin
+            // labelPutWall
             // 
-            this.labelPutOrigin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelPutOrigin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelPutOrigin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelPutOrigin.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPutOrigin.Location = new System.Drawing.Point(867, 0);
-            this.labelPutOrigin.Name = "labelPutOrigin";
-            this.labelPutOrigin.Size = new System.Drawing.Size(100, 47);
-            this.labelPutOrigin.TabIndex = 4;
-            this.labelPutOrigin.Text = "Origin";
-            this.labelPutOrigin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelPutOrigin.Click += new System.EventHandler(this.LabelPutOrigin_Click);
+            this.labelPutWall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelPutWall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelPutWall.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelPutWall.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPutWall.Location = new System.Drawing.Point(1067, 0);
+            this.labelPutWall.Name = "labelPutWall";
+            this.labelPutWall.Size = new System.Drawing.Size(100, 47);
+            this.labelPutWall.TabIndex = 6;
+            this.labelPutWall.Text = "Wall";
+            this.labelPutWall.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPutWall.Click += new System.EventHandler(this.LabelPutWall_Click);
             // 
             // comboBox
             // 
@@ -158,6 +144,20 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Algorithms:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPutFreePath
+            // 
+            this.labelPutFreePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelPutFreePath.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelPutFreePath.Dock = System.Windows.Forms.DockStyle.Right;
+            this.labelPutFreePath.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPutFreePath.Location = new System.Drawing.Point(1167, 0);
+            this.labelPutFreePath.Name = "labelPutFreePath";
+            this.labelPutFreePath.Size = new System.Drawing.Size(129, 47);
+            this.labelPutFreePath.TabIndex = 7;
+            this.labelPutFreePath.Text = "Free path";
+            this.labelPutFreePath.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPutFreePath.Click += new System.EventHandler(this.LabelPutFreePath_Click);
             // 
             // labelReset
             // 
